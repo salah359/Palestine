@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Power Dashboard | Tatreez Elegance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Expanded Dashboard Styling */
+        body { 
+            background-color: #f4f6f9; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sidebar { 
+            min-height: 100vh; 
+            background-color: #1A1A1A; 
+            color: white; 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .sidebar a { 
+            color: #A0A0A0; 
+            text-decoration: none; 
+            padding: 18px 25px; 
+            display: block; 
+            transition: all 0.3s ease; 
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        .sidebar a:hover, .sidebar a.active { 
+            background-color: #8B1E28; 
+            color: white; 
+            border-left: 5px solid #D4AF37;
+        }
+        .content-area { 
+            padding: 50px; 
+        }
+        .card { 
+            border-radius: 15px; 
+        }
+        .form-label { 
+            color: #495057; 
+            font-size: 0.95rem;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #8B1E28;
+            box-shadow: 0 0 0 0.3rem rgba(139, 30, 40, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <div class="sidebar w-25 shadow-lg">
+            <h2 class="text-center py-5 mb-0 border-bottom border-secondary" style="color: #D4AF37; font-family: 'Georgia', serif; letter-spacing: 2px;">
+                Admin Portal
+            </h2>
+            <div class="mt-4">
+                <a href="#" onclick="switchTab('products')" id="tab-products" class="active">
+                    <i class="fas fa-box-open me-3"></i> Add Products
+                </a>
+                <a href="#" onclick="switchTab('orders')" id="tab-orders">
+                    <i class="fas fa-shopping-cart me-3"></i> Manage Orders
+                </a>
+                <a href="#" onclick="switchTab('carousel')" id="tab-carousel">
+                    <i class="fas fa-images me-3"></i> Global Carousel
+                </a>
+                <a href="index.html" class="mt-5 border-top border-secondary text-info">
+                    <i class="fas fa-external-link-alt me-3"></i> View Live Site
+                </a>
+            </div>
+        </div>
+
+        <div class="content-area w-75">
+            
+            <div id="section-products">
+                <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                    <h1 class="fw-bold mb-0" style="color: #8B1E28;">Add Heritage Item</h1>
+                    <span class="badge bg-success fs-6 px-3 py-2 shadow-sm"><i class="fas fa-cloud-check me-2"></i> Cloud Synced</span>
+                </div>
+                
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <form id="addProductForm">
+                            <div class="row g-4">
+                                
+                                <div class="col-md-8">
+                                    <label class="form-label fw-bold">Product Name <span class="text-danger">*</span></label>
+                                    <input type="text" id="p-name" class="form-control form-control-lg bg-light border-0" required placeholder="e.g., Hebron Royal Thobe">
+                                </div>
+                                <div class="col-md-4 d-flex align-items-center">
+                                    <div class="form-check form-switch fs-4 mt-4">
+                                        <input class="form-check-input shadow-sm" type="checkbox" id="p-instock" checked>
+                                        <label class="form-check-label fw-bold text-success fs-5 ms-2" for="p-instock">In Stock</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Base Price ($) <span class="text-muted fw-normal">(Optional)</span></label>
+                                    <input type="number" step="0.01" id="p-price" class="form-control bg-light border-0" placeholder="0.00">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-danger">Apply Discount (%) <span class="text-muted fw-normal">(Optional)</span></label>
+                                    <input type="number" id="p-discount" class="form-control bg-light border-0 text-danger fw-bold" placeholder="0" value="0" min="0" max="100">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-primary"><i class="fas fa-images me-2"></i>Product Images <span class="text-muted fw-normal">(Multiple allowed)</span></label>
+                                    <input type="file" id="p-images" class="form-control border-primary shadow-sm" accept="image/*" multiple>
+                                    <small class="text-muted d-block mt-1">Hold CTRL/CMD to select multiple angles.</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-info"><i class="fas fa-video me-2"></i>Product Showcase Video <span class="text-muted fw-normal">(Optional)</span></label>
+                                    <input type="file" id="p-video" class="form-control border-info shadow-sm" accept="video/mp4,video/x-m4v,video/*">
+                                    <small class="text-muted d-block mt-1">Max file size: 50MB.</small>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Available Sizes <span class="text-muted fw-normal">(Comma separated)</span></label>
+                                    <input type="text" id="p-sizes" class="form-control bg-light border-0" value="S, M, L, XL" placeholder="e.g. S, M, L, Custom">
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Description Details <span class="text-muted fw-normal">(Optional)</span></label>
+                                    <textarea id="p-desc" class="form-control bg-light border-0" rows="5" placeholder="Detail the embroidery motifs, fabric types, and historical significance..."></textarea>
+                                </div>
+                                
+                                <div class="col-12 mt-5 border-top pt-4">
+                                    <button type="submit" class="btn w-100 py-3 fw-bold text-white shadow-lg rounded-pill" style="background-color: #8B1E28; font-size: 1.2rem; transition: 0.3s;">
+                                        <i class="fas fa-paper-plane me-2"></i> Publish Product Globally
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="section-orders" class="d-none">
+                <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                    <h1 class="fw-bold mb-0" style="color: #8B1E28;">Incoming Orders</h1>
+                    <button class="btn btn-outline-dark" onclick="fetchOrders()"><i class="fas fa-sync-alt me-2"></i> Refresh List</button>
+                </div>
+                <div class="card shadow-lg border-0 overflow-hidden">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped mb-0 align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th class="py-3 px-4">Contact Details</th>
+                                        <th class="py-3">Shipping Address</th>
+                                        <th class="py-3">Total Paid</th>
+                                        <th class="py-3 text-end px-4">Admin Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTableBody">
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="section-carousel" class="d-none">
+                <div class="mb-4 pb-2 border-bottom">
+                    <h1 class="fw-bold mb-0" style="color: #8B1E28;">Homepage Carousel Setup</h1>
+                </div>
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <div class="alert alert-secondary border-0 border-start border-5 border-info mb-5 fs-5">
+                            <i class="fas fa-info-circle me-3 text-info"></i> Upload up to 3 high-resolution images. These will overwrite the current main page slider and sync directly to Google Cloud.
+                        </div>
+                        <form id="carouselForm">
+                            <div class="mb-5 bg-light p-4 rounded-3 border">
+                                <label class="form-label fw-bold fs-4 text-dark mb-3"><i class="fas fa-images me-2 text-danger"></i> Select Media Files</label>
+                                <input type="file" id="c-images" class="form-control form-control-lg border-secondary shadow-sm" accept="image/*" multiple required>
+                                <small class="text-muted d-block mt-3 fs-6"><strong>Pro Tip:</strong> Hold Ctrl (Windows) or Cmd (Mac) to select multiple files simultaneously.</small>
+                            </div>
+                            
+                            <button type="submit" class="btn w-100 py-3 fw-bold text-white shadow-lg rounded-pill fs-5" style="background-color: #1A1A1A;">
+                                <i class="fas fa-cloud-upload-alt me-2"></i> Update Live Site Presentation
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
