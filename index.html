@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tatreez Elegance - Authentic Palestinian Heritage Clothing and Modern Thobes.">
+    <meta name="keywords" content="Tatreez, Palestine, Thobe, Embroidery, Heritage, Fashion">
+    
+    <title>Tatreez Elegance | Palestinian Heritage</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" onclick="showPage('home')" aria-label="Tatreez Elegance Home">Tatreez Elegance</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+               <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('home')">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('shop')">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('about')">Heritage</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('care')">Care Guide</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('contact')">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="nav-link cart-link" href="#" onclick="showPage('cart')">
+                            <i class="fas fa-shopping-bag"></i> Cart 
+                            <span id="cart-count" class="badge bg-danger rounded-pill shadow-sm">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <button class="btn btn-outline-light btn-sm rounded-circle theme-toggle-btn" id="darkModeToggle" onclick="toggleDarkMode()">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home" class="page-section active">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+            <div class="carousel-indicators z-3">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+            
+            <div class="carousel-inner h-100" id="carousel-inner-container">
+                <div class="carousel-item active h-100">
+                    <div class="carousel-overlay"></div>
+                    <img id="slide-img-1" src="https://images.unsplash.com/photo-1605337222543-85b4f620f4c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100 h-100 object-fit-cover" alt="Tatreez Embroidery">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                        <h1 class="display-2 fw-bold text-white mb-4 animate-up">Woven with History</h1>
+                        <p class="lead text-white mb-5 animate-up delay-1">Authentic Palestinian Thobes and modern Tatreez fashion.</p>
+                        <button class="btn btn-custom btn-lg animate-up delay-2 shadow-lg" onclick="showPage('shop')">Explore Collection</button>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <div class="carousel-overlay"></div>
+                    <img id="slide-img-2" src="https://images.unsplash.com/photo-1583391733959-1c667ce14620?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100 h-100 object-fit-cover" alt="Modern Palestinian Dress">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                        <h1 class="display-2 fw-bold text-white mb-4 animate-up">Modern Elegance</h1>
+                        <p class="lead text-white mb-5 animate-up delay-1">Contemporary silhouettes honoring traditional roots.</p>
+                        <button class="btn btn-custom btn-lg animate-up delay-2 shadow-lg" onclick="showPage('shop')">Shop New Arrivals</button>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <div class="carousel-overlay"></div>
+                    <img id="slide-img-3" src="https://images.unsplash.com/photo-1550614000-4b95d4ebdaea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100 h-100 object-fit-cover" alt="Tatreez Details">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                        <h1 class="display-2 fw-bold text-white mb-4 animate-up">Art in Every Stitch</h1>
+                        <p class="lead text-white mb-5 animate-up delay-1">Empowering female artisans across Palestine.</p>
+                        <button class="btn btn-custom btn-lg animate-up delay-2 shadow-lg" onclick="showPage('about')">Discover Our Heritage</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev z-3" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next z-3" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <div id="shop" class="page-section pt-5 mt-5 container">
+        <h2 class="text-center mb-5 fw-bold brand-color">Our Collection</h2>
+        <div class="row g-4" id="dynamic-products-container">
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-spinner fa-spin fa-3x brand-color mb-3"></i>
+                <h5 class="text-muted">Loading heritage pieces from the server...</h5>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="page-section pt-5 mt-5 container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <div class="overflow-hidden shadow-lg" style="height: 450px; border-radius: 12px;">
+                     <img src="https://images.unsplash.com/photo-1605337222543-85b4f620f4c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tatreez Detail Close Up" class="w-100 h-100 object-fit-cover scale-on-hover">
+                </div>
+            </div>
+            <div class="col-md-6 ps-md-5">
+                <h2 class="fw-bold brand-color mb-4 display-5">The Art of Tatreez</h2>
+                <div class="title-underline mb-4"></div>
+                <p class="lead fw-normal text-color-adaptive">More than just clothing, Palestinian embroidery is a language of identity, resistance, and generational storytelling.</p>
+                <p class="text-color-adaptive" style="line-height: 1.8;">Every stitch carries the history of the land. Historically, the colors and patterns of a thobe indicated the wearer's region, marital status, and social standing. We work directly with female artisans to preserve this beautiful tradition while adapting it for the modern wardrobe, ensuring fair wages and cultural preservation.</p>
+                <button class="btn btn-outline-dark mt-3" onclick="showPage('shop')">Support Our Artisans</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="care" class="page-section pt-5 mt-5 container">
+        <h2 class="text-center mb-4 fw-bold brand-color">Caring for Your Heritage</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center mb-5">
+                <p class="text-muted lead">Traditional Palestinian embroidery requires gentle care to preserve the vibrant threads and delicate fabrics for generations to come.</p>
+            </div>
+            <div class="col-md-10">
+                <div class="accordion shadow-sm rounded border-0" id="careAccordion">
+                    <div class="accordion-item mb-2 border">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                <i class="fas fa-hand-holding-water me-3 brand-color fs-4"></i> Washing Instructions
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#careAccordion">
+                            <div class="accordion-body text-color-adaptive p-4">
+                                We highly recommend <strong>hand washing</strong> your thobes in cold water with a mild, pH-neutral detergent. Avoid bleach, fabric softeners, or harsh chemicals.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-2 border">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                <i class="fas fa-wind me-3 brand-color fs-4"></i> Drying & Storage
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#careAccordion">
+                            <div class="accordion-body text-color-adaptive p-4">
+                                Always air dry your garments by laying them flat on a clean, dry towel in the shade. Never wring or twist the fabric to remove water. 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                <i class="fas fa-tshirt me-3 brand-color fs-4"></i> Ironing & Pressing
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#careAccordion">
+                            <div class="accordion-body text-color-adaptive p-4">
+                                When ironing, always turn the garment <strong>inside out</strong>. Use a low-heat setting and a pressing cloth to protect both the base fabric and the embroidery.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="page-section pt-5 mt-5 container">
+        <h2 class="text-center mb-5 fw-bold brand-color">Get in Touch</h2>
+        <div class="row bg-card-custom p-5 rounded shadow-lg border-top border-3 border-danger">
+            <div class="col-md-5 mb-5 mb-md-0 border-end pe-md-5">
+                <h4 class="mb-4 fw-bold text-color-adaptive">Visit Our Studio</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-3 text-muted d-flex align-items-center">
+                        <i class="fas fa-map-marker-alt me-3 brand-color fs-5 w-20px text-center"></i> Ramallah Cultural District, Palestine
+                    </li>
+                    <li class="mb-3 text-muted d-flex align-items-center">
+                        <i class="fas fa-envelope me-3 brand-color fs-5 w-20px text-center"></i> heritage@tatreezelegance.com
+                    </li>
+                    <li class="mb-3 text-muted d-flex align-items-center">
+                        <i class="fas fa-phone me-3 brand-color fs-5 w-20px text-center"></i> +970 2 295 0000
+                    </li>
+                </ul>
+                <h5 class="mt-5 mb-3 fw-bold text-color-adaptive">Follow Our Journey</h5>
+                <div class="d-flex gap-4 mt-3">
+                    <a href="#" class="text-muted fs-3 hover-gold transition-fast"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-muted fs-3 hover-gold transition-fast"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="col-md-7 ps-md-5">
+                <form id="contactForm">
+                    <div class="row g-3">
+                        <div class="col-sm-6 mb-3">
+                            <label class="form-label text-muted fw-bold">First Name</label>
+                            <input type="text" class="form-control form-custom border-0 p-3 shadow-sm" required>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label class="form-label text-muted fw-bold">Last Name</label>
+                            <input type="text" class="form-control form-custom border-0 p-3 shadow-sm" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted fw-bold">Email Address</label>
+                        <input type="email" class="form-control form-custom border-0 p-3 shadow-sm" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label text-muted fw-bold">Your Message</label>
+                        <textarea class="form-control form-custom border-0 p-3 shadow-sm" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-custom w-100 py-3 fs-5 shadow-sm fw-bold">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart" class="page-section pt-5 mt-5 container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="fw-bold brand-color m-0">Your Shopping Bag</h2>
+            <button class="btn btn-outline-secondary btn-sm" onclick="showPage('shop')"><i class="fas fa-arrow-left me-2"></i>Continue Shopping</button>
+        </div>
+        <div class="bg-card-custom p-4 rounded shadow-lg">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-color-adaptive mb-0">
+                    <thead class="table-light-custom">
+                        <tr>
+                            <th scope="col" class="py-3">Product Details</th>
+                            <th scope="col" class="py-3 text-center">Price</th>
+                            <th scope="col" class="py-3 text-end">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items" class="border-top-0"></tbody>
+                </table>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-end mt-4 border-top pt-4">
+                <div class="mb-3 mb-md-0 text-muted">
+                    <small><i class="fas fa-shield-alt me-2"></i>Secure checkout guaranteed.</small>
+                </div>
+                <div class="text-end text-color-adaptive">
+                    <h3 class="fw-bold mb-3">Subtotal: $<span id="cart-total" class="brand-color">0.00</span></h3>
+                    <button class="btn btn-custom btn-lg shadow-sm px-5" onclick="checkoutProcess()">Proceed to Checkout <i class="fas fa-lock ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-5 bg-dark text-white mt-5">
+        <div class="container text-center text-md-start">
+            <div class="row gy-4 align-items-center">
+                <div class="col-md-6">
+                    <h4 class="brand-color fw-bold mb-2">Tatreez Elegance</h4>
+                    <p class="text-muted mb-0">Preserving heritage, one stitch at a time.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small text-muted mb-0">&copy; 2026 Tatreez Elegance. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content rounded-3 bg-card-custom border-0 shadow-lg overflow-hidden">
+                <div class="modal-header border-0 pb-0 position-absolute top-0 end-0 z-3">
+                    <button type="button" class="btn-close bg-white m-3 p-2 rounded-circle shadow-sm" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-6 bg-light d-flex align-items-center justify-content-center overflow-hidden position-relative" style="min-height: 500px;" id="modalMediaContainer">
+                            <img id="modalImage" src="" alt="Product view" class="img-fluid object-fit-cover w-100 h-100 position-absolute">
+                            <video id="modalVideo" class="w-100 h-100 object-fit-cover position-absolute d-none" controls muted loop playsinline></video>
+                        </div>
+                        
+                        <div class="col-md-6 p-5 d-flex flex-column justify-content-center">
+                            <span id="modalRegionBadge" class="badge bg-danger mb-2 align-self-start">Authentic Hand-Stitched</span>
+                            
+                            <h3 id="modalTitle" class="fw-bold brand-color mb-1">Product Name</h3>
+                            
+                            <div class="d-flex align-items-center mb-4 mt-2">
+                                <h4 id="modalPrice" class="fw-bold mb-0 fs-3 me-3">$0.00</h4>
+                                <span id="modalOriginalPrice" class="text-decoration-line-through text-muted fs-5 d-none">$0.00</span>
+                            </div>
+                            
+                            <p id="modalDesc" class="mb-4 text-color-adaptive text-muted lh-lg">Authentic Palestinian embroidery tailored for a perfect fit.</p>
+                            
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label class="form-label fw-bold text-color-adaptive mb-2">Select Size</label>
+                                    <select class="form-select border-dark p-3 rounded-1 form-custom" id="modalSize">
+                                        </select>
+                                </div>
+                                <div class="col-6" id="colorSelectorContainer">
+                                    <label class="form-label fw-bold text-color-adaptive mb-2">Select Color</label>
+                                    <select class="form-select border-dark p-3 rounded-1 form-custom" id="modalColor">
+                                        </select>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-custom w-100 py-3 fw-bold shadow-sm" id="modalAddToCart">
+                                <i class="fas fa-shopping-bag me-2"></i> Add to Shopping Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-4" style="z-index: 1055;">
+        <div id="cartToast" class="toast shadow-lg border-0 rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex align-items-center p-3">
+                <div class="me-3 text-success fs-4">
+                    <i class="fas fa-check-circle brand-color"></i>
+                </div>
+                <div class="toast-body fw-bold p-0 fs-6" id="toastMessage">
+                    Item successfully added to cart!
+                </div>
+                <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
